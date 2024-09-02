@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NhP05hMrIQK/7qfgr3ahi/8JeznIJfklkDzVitEz7YQ=",
+  "Source": "BackupApp.WebAPI",
+  "BasePath": "_content/BackupApp.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

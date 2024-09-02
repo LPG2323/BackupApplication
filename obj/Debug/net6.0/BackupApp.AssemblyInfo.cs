@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BackupApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8adf8f7f7f565d8eb5be95fdbbc61e1432420a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("BackupApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackupApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
