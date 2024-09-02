@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="SourcePath" xml:space="preserve">
+    <value>Chemin Source</value>
+  </data>
+  <data name="DestinationPath" xml:space="preserve">
+    <value>Chemin de Destination</value>
+  </data>
+  <data name="StartBackup" xml:space="preserve">
+    <value>Démarrer la Sauvegarde</value>
+  </data>
+  <data name="BackupTask" xml:space="preserve">
+    <value>Tâche de Sauvegarde</value>
+  </data>
+</root>

@@ -1,0 +1,93 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:BackupApp.ViewModels"
+        xmlns:models="clr-namespace:BackupApp.Models"
+        mc:Ignorable="d"
+        x:Class="BackupApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="LPG BackupApp">
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" /> <!-- Spacer Row -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" /> <!-- Row for Progress Bar -->
+            <RowDefinition Height="Auto" /> <!-- Row for File Counts -->
+            <RowDefinition Height="20" /> <!-- Spacer Row for Start Backup Button -->
+            <RowDefinition Height="Auto" /> <!-- Row for Start Backup Button -->
+            <RowDefinition Height="Auto" /> <!-- Row for Pause/Resume/Stop Buttons -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Language Selection -->
+        <TextBlock Text="Choose your Preferred Language" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5" />
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5">
+            <Button Content="English" Command="{Binding ChangeLanguageCommand}" CommandParameter="en" Margin="5" />
+            <Button Content="French" Command="{Binding ChangeLanguageCommand}" CommandParameter="fr" Margin="5" />
+        </StackPanel>
+
+        <!-- Backup Name -->
+        <TextBlock Text="Backup Name" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="5" />
+        <TextBox Text="{Binding BackupName}" Grid.Row="2" Grid.Column="1" Margin="5" Width="300" />
+
+        <!-- Source Path -->
+        <TextBlock Text="{Binding SourcePathLabel}" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="5" />
+        <TextBox Text="{Binding SourcePath}" Grid.Row="3" Grid.Column="1" Margin="5" Width="300" />
+
+        <!-- Destination Path -->
+        <TextBlock Text="{Binding DestinationPathLabel}" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="5" />
+        <TextBox Text="{Binding DestinationPath}" Grid.Row="4" Grid.Column="1" Margin="5" Width="300" />
+
+        <!-- Backup Type -->
+        <TextBlock Text="Backup Type" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="5" />
+        <ComboBox ItemsSource="{Binding BackupTypes}" SelectedItem="{Binding SelectedBackupType}" Grid.Row="5" Grid.Column="1" Margin="5" Width="300">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <!-- Priority Checkbox -->
+        <CheckBox Content="High Priority" IsChecked="{Binding IsPriority}" Grid.Row="6" Grid.Column="1" Margin="5" />
+
+        <!-- Start Backup Button -->
+        <Button Content="{Binding StartBackupLabel}" Command="{Binding StartBackupCommand}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="5" />
+
+        <!-- Backup Jobs List -->
+        <ListBox ItemsSource="{Binding BackupJobs}" Grid.Row="10" Grid.ColumnSpan="2" Margin="5">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="vm:BackupJobViewModel">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Binding SourcePath}" />
+                        <TextBlock Text="{Binding DestinationPath}" />
+                        <ProgressBar Minimum="0" Maximum="100" Value="{Binding BackupProgress}" Height="20" Margin="5"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Files backed up: " />
+                            <TextBlock Text="{Binding FilesBackedUp}" />
+                            <TextBlock Text=" / " />
+                            <TextBlock Text="{Binding TotalFiles}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Pause" Command="{Binding PauseBackupCommand}" Margin="5" />
+                            <Button Content="Resume" Command="{Binding ResumeBackupCommand}" Margin="5" />
+                            <Button Content="Stop" Command="{Binding StopBackupCommand}" Margin="5" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.1.2" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.1.2" />
+    <PackageReference Include="Avalonia.Native" Version="11.1.2" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.2" />
+    <PackageReference Include="Avalonia.Skia" Version="11.1.2" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.2" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Models\BackupTask.cs" />
+    <Compile Include="Models\BackupJob.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\LanguageSelectionViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\BackupJobViewModel.cs" />
+    <Compile Include="Views\MainWindow.axaml.cs" />
+    <Compile Include="Views\LanguageSelectionWindow.axaml.cs" />
+    <Compile Include="App.axaml.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ViewLocator.cs" />
+    <Compile Include="Helpers\Encryption.cs" />
+    <Page Include="Views\MainWindow.axaml" />
+    <Page Include="Views\LanguageSelectionWindow.axaml" />
+    <Page Include="App.axaml" />
+    <EmbeddedResource Include="Properties\Resources.en.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr.resx" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+  </ItemGroup>
+
+</Project>
